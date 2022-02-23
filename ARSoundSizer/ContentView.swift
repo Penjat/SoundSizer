@@ -1,16 +1,25 @@
-//
-//  ContentView.swift
-//  ARSoundSizer
-//
-//  Created by Spencer Symington on 2022-02-23.
-//
-
 import SwiftUI
 import RealityKit
 
 struct ContentView : View {
+    @StateObject var synth = Synth()
+    
     var body: some View {
-        return ARViewContainer().edgesIgnoringSafeArea(.all)
+        ZStack {
+            ARViewContainer()
+            VStack {
+                Spacer()
+                ScrollView(.horizontal, showsIndicators: true) {
+                    LazyHStack {
+                        ForEach(0..<8, id: \.self) { index in
+                            OctaveView(octave: index)
+                        }
+                    }
+                }
+            }
+        }
+        .environmentObject(synth)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

@@ -20,6 +20,10 @@
 		0B9B1E3327C697040021179D /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E3227C697040021179D /* Experience.rcproject */; };
 		0B9B1E3527C697050021179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B9B1E3427C697050021179D /* Assets.xcassets */; };
 		0B9B1E3827C697050021179D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B9B1E3727C697050021179D /* Preview Assets.xcassets */; };
+		0B9B1E3C27C6A2B20021179D /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD3612703588D00420171 /* KeyboardView.swift */; };
+		0B9B1E3D27C6A2B50021179D /* OctaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD363270362C300420171 /* OctaveView.swift */; };
+		0B9B1E3E27C6A2B70021179D /* Oscilator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD35F27023B6300420171 /* Oscilator.swift */; };
+		0B9B1E3F27C6A2BB0021179D /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD35D27023B3400420171 /* Synth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -232,7 +236,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B9B1E3D27C6A2B50021179D /* OctaveView.swift in Sources */,
 				0B9B1E3127C697040021179D /* ContentView.swift in Sources */,
+				0B9B1E3E27C6A2B70021179D /* Oscilator.swift in Sources */,
+				0B9B1E3F27C6A2BB0021179D /* Synth.swift in Sources */,
+				0B9B1E3C27C6A2B20021179D /* KeyboardView.swift in Sources */,
 				0B9B1E2F27C697040021179D /* AppDelegate.swift in Sources */,
 				0B9B1E3327C697040021179D /* Experience.rcproject in Sources */,
 			);
