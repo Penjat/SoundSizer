@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import RealityKit
+import ARKit
 
 class SoundSizerViewModel: ObservableObject {
     var soundBox: Entity?
@@ -8,12 +9,20 @@ class SoundSizerViewModel: ObservableObject {
     @Published var waveSize = 0.0
     
     func loadScene() {
-        // Load the "Box" scene from the "Experience" Reality File
         let boxAnchor = try! Experience.loadBox()
-        
-        // Add the box anchor to the scene
-        
         arView?.scene.anchors.append(boxAnchor)
+        
+        if let session = arView?.session {
+            let config = ARWorldTrackingConfiguration()
+            config.planeDetection = [.vertical]
+            session.run(config)
+            
+            let coachingOverlay = ARCoachingOverlayView()
+            coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            coachingOverlay.session = session
+            coachingOverlay.goal = .verticalPlane
+            arView?.addSubview(coachingOverlay)
+        }
     }
     
     func setObjectSize(size: Float) {
