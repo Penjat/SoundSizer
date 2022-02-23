@@ -25,6 +25,9 @@
 		0B9B1E3E27C6A2B70021179D /* Oscilator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD35F27023B6300420171 /* Oscilator.swift */; };
 		0B9B1E3F27C6A2BB0021179D /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD35D27023B3400420171 /* Synth.swift */; };
 		0B9B1E4127C6A9D70021179D /* SoundSizerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E4027C6A9D70021179D /* SoundSizerViewModel.swift */; };
+		0B9B1E4327C6E90D0021179D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E4227C6E90D0021179D /* TitleView.swift */; };
+		0B9B1E4527C6E9A40021179D /* ARSoundSizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E4427C6E9A40021179D /* ARSoundSizerView.swift */; };
+		0B9B1E4727C6EB200021179D /* WaveMakerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E4627C6EB200021179D /* WaveMakerContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		0B9B1E3427C697050021179D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B9B1E3727C697050021179D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0B9B1E4027C6A9D70021179D /* SoundSizerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSizerViewModel.swift; sourceTree = "<group>"; };
+		0B9B1E4227C6E90D0021179D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		0B9B1E4427C6E9A40021179D /* ARSoundSizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSoundSizerView.swift; sourceTree = "<group>"; };
+		0B9B1E4627C6EB200021179D /* WaveMakerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveMakerContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +116,10 @@
 			children = (
 				0B9B1E2E27C697040021179D /* AppDelegate.swift */,
 				0B9B1E3027C697040021179D /* ContentView.swift */,
+				0B9B1E4227C6E90D0021179D /* TitleView.swift */,
+				0B9B1E4427C6E9A40021179D /* ARSoundSizerView.swift */,
 				0B9B1E4027C6A9D70021179D /* SoundSizerViewModel.swift */,
+				0B9B1E4627C6EB200021179D /* WaveMakerContainerView.swift */,
 				0B9B1E3227C697040021179D /* Experience.rcproject */,
 				0B9B1E3427C697050021179D /* Assets.xcassets */,
 				0B9B1E3627C697050021179D /* Preview Content */,
@@ -240,13 +249,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B9B1E3D27C6A2B50021179D /* OctaveView.swift in Sources */,
+				0B9B1E4527C6E9A40021179D /* ARSoundSizerView.swift in Sources */,
 				0B9B1E3127C697040021179D /* ContentView.swift in Sources */,
 				0B9B1E4127C6A9D70021179D /* SoundSizerViewModel.swift in Sources */,
 				0B9B1E3E27C6A2B70021179D /* Oscilator.swift in Sources */,
 				0B9B1E3F27C6A2BB0021179D /* Synth.swift in Sources */,
+				0B9B1E4327C6E90D0021179D /* TitleView.swift in Sources */,
 				0B9B1E3C27C6A2B20021179D /* KeyboardView.swift in Sources */,
 				0B9B1E2F27C697040021179D /* AppDelegate.swift in Sources */,
 				0B9B1E3327C697040021179D /* Experience.rcproject in Sources */,
+				0B9B1E4727C6EB200021179D /* WaveMakerContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
