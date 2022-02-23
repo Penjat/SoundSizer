@@ -1,14 +1,21 @@
 import SwiftUI
 import RealityKit
+import Combine
 
 struct ContentView : View {
     @StateObject var synth = Synth()
-    
+    @StateObject var viewModel = SoundSizerViewModel()
     var body: some View {
         ZStack {
-            ARViewContainer()
+            ARViewContainer(viewModel: viewModel)
             VStack() {
                 Spacer()
+                HStack {
+                    Text(synth.isPlaying ? "\(synth.frequency)" : "")
+                    Spacer()
+                    Text(synth.isPlaying ? "\(343.0/synth.frequency) meters" : "")
+                }.foregroundColor(.white).font(.system(size: 20))
+                
                 ScrollView(.horizontal, showsIndicators: true) {
                     LazyHStack {
                         ForEach(0..<8, id: \.self) { index in
@@ -18,6 +25,12 @@ struct ContentView : View {
                 }
                 .frame(height: 300)
                 .background(.ultraThinMaterial)
+            }.onAppear {
+                viewModel.loadScene()
+                
+            }.onChange(of: synth.isPlaying) { newValue in
+                viewModel.setObjectSize(size: Float(343.0)/synth.frequency)
+                print("setting size")
             }
         }
         .environmentObject(synth)
@@ -26,19 +39,11 @@ struct ContentView : View {
 }
 
 struct ARViewContainer: UIViewRepresentable {
-    
+    let viewModel: SoundSizerViewModel
     func makeUIView(context: Context) -> ARView {
-        
         let arView = ARView(frame: .zero)
-        
-        // Load the "Box" scene from the "Experience" Reality File
-        let boxAnchor = try! Experience.loadBox()
-        
-        // Add the box anchor to the scene
-        arView.scene.anchors.append(boxAnchor)
-        
+        viewModel.arView = arView
         return arView
-        
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
