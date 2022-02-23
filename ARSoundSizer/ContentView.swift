@@ -7,7 +7,7 @@ struct ContentView : View {
     var body: some View {
         ZStack {
             ARViewContainer()
-            VStack {
+            VStack() {
                 Spacer()
                 ScrollView(.horizontal, showsIndicators: true) {
                     LazyHStack {
@@ -16,6 +16,8 @@ struct ContentView : View {
                         }
                     }
                 }
+                .frame(height: 300)
+                .background(.ultraThinMaterial)
             }
         }
         .environmentObject(synth)
