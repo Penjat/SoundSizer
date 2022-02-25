@@ -8,11 +8,11 @@ class ARProofViewModel: ObservableObject {
     var entities = [(ModelEntity, PositionRef)]()
     let gridSacing: Float = 0.25
     var planeAnchor: AnchorEntity?
-    let numberCubes = 5
+    let numberCubes = 7
     func createGrid() {
         let gridProvider = GridProvider()
         let grid = gridProvider.createGrid(numberCubes)
-        planeAnchor = AnchorEntity(world: [0.5,-1,0.5])
+        planeAnchor = AnchorEntity(world: [-0.5,-1,-0.5])
         
         for gridElement in grid {
             let boxMesh = MeshResource.generateBox(size: 0.2)

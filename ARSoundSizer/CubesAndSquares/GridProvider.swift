@@ -46,7 +46,7 @@ class GridProvider {
                             if y%2 == 1 {
                                 // if even sided
                                 if index % 2 == 0 {
-                                    return (x: x + offset, y: 0, z: z + (index / 2))
+                                    return (x: x + offset, y: 0, z: z + (index / 2) + index*(y-1)/2)
                                 }
                                 return (x: x + offset, y: 0, z: z + index*(y-1)/2)
                             }
@@ -55,7 +55,7 @@ class GridProvider {
                             
                             // if even sided
                             if index % 2 == 0 {
-                                return (x: x + (index / 2), y: 0, z: z + offset )
+                                return (x: x + index*(y-1)/2, y: 0, z: z + offset )
                             }
                             return (x: x + index*(y-2)/2, y: 0, z: z + offset)
                             
