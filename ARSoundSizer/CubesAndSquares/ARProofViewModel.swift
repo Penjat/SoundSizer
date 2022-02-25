@@ -6,9 +6,11 @@ class ARProofViewModel: ObservableObject {
     var cubeposition = false
     var entities = [(ModelEntity, PositionRef)]()
     let gridSacing: Float = 0.25
+    var planeAnchor: AnchorEntity?
     func createGrid() {
         let gridProvider = GridProvider()
         let grid = gridProvider.createGrid(4)
+        planeAnchor = AnchorEntity(world: [2,-2,2])
         
         for gridElement in grid {
             let boxMesh = MeshResource.generateBox(size: 0.2)
@@ -23,10 +25,10 @@ class ARProofViewModel: ObservableObject {
             entities.append((boxEntity, gridElement))
             boxEntity.position = [x,y,z]
             
-            let planeAnchor = AnchorEntity(world: [2,-2,2])
-            arView?.scene.addAnchor(planeAnchor)
             
-            planeAnchor.addChild(boxEntity)
+            arView?.scene.addAnchor(planeAnchor!)
+            
+            planeAnchor?.addChild(boxEntity)
         }
     }
     
@@ -36,11 +38,15 @@ class ARProofViewModel: ObservableObject {
     }
     
     func positionElements() {
+        
         entities.forEach { (entity, position) in
             let x: Float = Float(cubeposition ? position.cubePosition.x : position.squarePosition.x)*gridSacing
             let y: Float = Float(cubeposition ? position.cubePosition.y : position.squarePosition.y)*gridSacing
             let z: Float = Float(cubeposition ? position.cubePosition.z : position.squarePosition.z)*gridSacing
-            entity.position = [x,y,z]
+                
+            entity.move(to: Transform(scale: [1,1,1], rotation: simd_quatf.init(), translation: [x,y,z]), relativeTo: planeAnchor, duration: 2.0)
+            
+            
         }
         
     }
