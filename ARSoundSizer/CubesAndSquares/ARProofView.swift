@@ -7,11 +7,17 @@ struct ARProofView : View {
     var body: some View {
         MyARViewContainer(viewModel: viewModel)
         .edgesIgnoringSafeArea(.all)
-        .navigationBarItems(trailing: Button("swap", action: {
+        .navigationBarItems(leading: Button(action: {viewModel.showMenu = true}, label: {
+            Text("menu")
+        }), trailing: Button("swap", action: {
             viewModel.toggleSquare()
         }))
         .onAppear {
             viewModel.createGrid()
+        }.sheet(isPresented: $viewModel.showMenu) {
+            VStack {
+                Toggle("AR background", isOn: $viewModel.arBackground)
+            }
         }
     }
 }
@@ -20,7 +26,7 @@ struct MyARViewContainer: UIViewRepresentable {
     let viewModel: ARProofViewModel
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero, cameraMode: .ar,  automaticallyConfigureSession: true)
-        viewModel.arView = arView
+        viewModel.setARView(arView)
         
         arView.environment.background = .color(.gray)
         let pointLight = PointLight()

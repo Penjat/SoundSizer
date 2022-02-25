@@ -34,11 +34,9 @@ class GridProvider {
                             if y == i && index%2 == 0 {
                                 //if bottom half
                                 if z < index/2 {
-                                    print("bottom to bottom index = \(index) , y \(y) , z \(z) , x+offset \(x + offset) ")
                                     return (x: x + offset, y: 0, z: z)
                                 }
                                 // top half
-                                print("top to left index = \(index) , y \(y) , z \(z) , new z = \(z - (index)/2)")
                                 return (x: z - (index)/2, y: 0, z: x + offset)
                             }
                             

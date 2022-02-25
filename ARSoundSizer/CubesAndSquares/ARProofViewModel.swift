@@ -3,10 +3,16 @@ import RealityKit
 import SwiftUI
 
 class ARProofViewModel: ObservableObject {
-    var arView: ARView?
+    @Published var showMenu = false
+    @Published var arBackground = false
+    var backgroundCancellable: AnyCancellable?
+    private var arView: ARView?
     var cubeposition = false
     var entities = [(ModelEntity, PositionRef)]()
-    let gridSacing: Float = 0.25
+    var gridSacing: Float {
+        return cubeSize + 0.02
+    }
+    let cubeSize: Float = 0.1
     var planeAnchor: AnchorEntity?
     let numberCubes = 7
     func createGrid() {
@@ -15,21 +21,27 @@ class ARProofViewModel: ObservableObject {
         planeAnchor = AnchorEntity(world: [-0.5,-1,-0.5])
         
         for gridElement in grid {
-            let boxMesh = MeshResource.generateBox(size: 0.2)
+            let boxMesh = MeshResource.generateBox(size: cubeSize)
             let boxMaterial = SimpleMaterial(color: cubeColor(gridElement.cubeID), roughness: 0.2, isMetallic: true)
             
-            let x: Float = Float(cubeposition ? gridElement.cubePosition.x : gridElement.squarePosition.x)*gridSacing
-            let y: Float = Float(cubeposition ? gridElement.cubePosition.y : gridElement.squarePosition.y)*gridSacing
-            let z: Float = Float(cubeposition ? gridElement.cubePosition.z : gridElement.squarePosition.z)*gridSacing
+            let x: Float = Float(cubeposition ? gridElement.cubePosition.x : gridElement.squarePosition.x)*(-gridSacing)
+            let y: Float = Float(cubeposition ? gridElement.cubePosition.y : gridElement.squarePosition.y)*(gridSacing)
+            let z: Float = Float(cubeposition ? gridElement.cubePosition.z : gridElement.squarePosition.z)*(-gridSacing)
             
             let boxEntity = ModelEntity(mesh: boxMesh, materials: [boxMaterial])
             entities.append((boxEntity, gridElement))
             boxEntity.position = [x,y,z]
             
-            
             arView?.scene.addAnchor(planeAnchor!)
             
             planeAnchor?.addChild(boxEntity)
+        }
+    }
+    
+    func setARView(_ view: ARView) {
+        self.arView = view
+        self.backgroundCancellable = $arBackground.sink { hasARBackground in
+            self.arView?.environment.background = hasARBackground ? .cameraFeed() : .color(.gray)
         }
     }
     
@@ -41,9 +53,9 @@ class ARProofViewModel: ObservableObject {
     func positionElements() {
         
         entities.forEach { (entity, position) in
-            let x: Float = Float(cubeposition ? position.cubePosition.x : position.squarePosition.x)*gridSacing
+            let x: Float = Float(cubeposition ? position.cubePosition.x : position.squarePosition.x)*(-gridSacing)
             let y: Float = Float(cubeposition ? position.cubePosition.y : position.squarePosition.y)*gridSacing
-            let z: Float = Float(cubeposition ? position.cubePosition.z : position.squarePosition.z)*gridSacing
+            let z: Float = Float(cubeposition ? position.cubePosition.z : position.squarePosition.z)*(-gridSacing)
                 
             entity.move(to: Transform(scale: [1,1,1], rotation: simd_quatf.init(), translation: [x,y,z]), relativeTo: planeAnchor, duration: 2.0)
             
