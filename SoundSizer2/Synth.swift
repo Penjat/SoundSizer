@@ -3,7 +3,8 @@ import Combine
 
 class Synth: ObservableObject {
     @Published var isPlaying = false
-    // MARK: Properties
+    @Published var wav: (Double) -> Double = sin
+    var bag = Set<AnyCancellable>()
     
     public var volume: Float {
         set {
@@ -70,11 +71,16 @@ class Synth: ObservableObject {
     private var time: Float = 0
     private let sampleRate: Double
     private let deltaTime: Float
-    private var signal: Signal
+    private var signal: Signal = { frequency, time in
+        let theta = Double(2.0 * Float.pi * frequency * time)
+        return Oscillator.amplitude * Float(sin(theta))
+    }
     
     // MARK: Init
     
-    init(signal: @escaping Signal = Oscillator.sine) {
+    
+    
+    init() {
         audioEngine = AVAudioEngine()
         
         let mainMixer = audioEngine.mainMixerNode
@@ -83,8 +89,6 @@ class Synth: ObservableObject {
         
         sampleRate = format.sampleRate
         deltaTime = 1 / Float(sampleRate)
-        
-        self.signal = signal
         
         let inputFormat = AVAudioFormat(commonFormat: format.commonFormat,
                                         sampleRate: format.sampleRate,
@@ -101,6 +105,13 @@ class Synth: ObservableObject {
         } catch {
             print("Could not start engine: \(error.localizedDescription)")
         }
+        
+        $wav.sink { wav in
+            self.signal = { frequency, time in
+                let theta = Double(2.0 * Float.pi * frequency * time)
+                return Oscillator.amplitude * Float(self.wav(theta))/2
+            }
+        }.store(in: &bag)
         
     }
     

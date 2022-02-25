@@ -14,6 +14,7 @@ struct ARSoundSizerView : View {
                     Text(synth.isPlaying ? "\(synth.frequency)" : "")
                     Spacer()
                     Text(synth.isPlaying ? "\(343.0/synth.frequency) meters" : "")
+                    Toggle("background", isOn: $viewModel.showBackground)
                 }.foregroundColor(.white).font(.system(size: 20))
                 
                 ScrollView(.horizontal, showsIndicators: true) {

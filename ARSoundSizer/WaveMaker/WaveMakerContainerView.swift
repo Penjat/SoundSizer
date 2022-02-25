@@ -2,8 +2,13 @@ import SwiftUI
 
 struct WaveMakerContainerView: View {
     @StateObject var synth = Synth()
+   
     var body: some View {
         VStack {
+            WaveView(frequency: 1.0, wav: synth.wav, color: .blue)
+                .frame(width: 400, height: 200).border(.blue)
+            
+            WaveControllerView(wav: $synth.wav, maxMagnitude: 1)
             Spacer()
             ScrollView(.horizontal, showsIndicators: true) {
                 LazyHStack {

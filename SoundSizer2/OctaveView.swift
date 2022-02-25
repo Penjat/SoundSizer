@@ -45,8 +45,8 @@ struct OctaveView: View {
                             synth.startPlaying()
                             return
                         }
-                        synth.frequency = 0
                         synth.stopPlaying()
+                        synth.frequency = 0
                     }
                     
                     private struct WhiteKey: View {
