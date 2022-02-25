@@ -7,6 +7,9 @@ struct ARProofView : View {
     var body: some View {
         MyARViewContainer(viewModel: viewModel)
         .edgesIgnoringSafeArea(.all)
+        .navigationBarItems(trailing: Button("swap", action: {
+            viewModel.toggleSquare()
+        }))
         .onAppear {
             viewModel.createGrid()
         }
