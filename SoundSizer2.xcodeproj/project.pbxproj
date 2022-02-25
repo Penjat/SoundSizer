@@ -35,6 +35,7 @@
 		0BD88B1B27C872C3009F514D /* ARProofView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B1A27C872C3009F514D /* ARProofView.swift */; };
 		0BD88B2327C91CC1009F514D /* ARSoundSizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B2227C91CC1009F514D /* ARSoundSizerTests.swift */; };
 		0BD88B2A27C91FC9009F514D /* GridProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B2927C91FC9009F514D /* GridProvider.swift */; };
+		0BD88B2C27C92C5A009F514D /* ARProofViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B2B27C92C5A009F514D /* ARProofViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		0BD88B2027C91CC1009F514D /* ARSoundSizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARSoundSizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BD88B2227C91CC1009F514D /* ARSoundSizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSoundSizerTests.swift; sourceTree = "<group>"; };
 		0BD88B2927C91FC9009F514D /* GridProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridProvider.swift; sourceTree = "<group>"; };
+		0BD88B2B27C92C5A009F514D /* ARProofViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARProofViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 			children = (
 				0BD88B1A27C872C3009F514D /* ARProofView.swift */,
 				0BD88B2927C91FC9009F514D /* GridProvider.swift */,
+				0BD88B2B27C92C5A009F514D /* ARProofViewModel.swift */,
 			);
 			path = CubesAndSquares;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				0B9B1E4527C6E9A40021179D /* ARSoundSizerView.swift in Sources */,
 				0B9B1E3127C697040021179D /* ContentView.swift in Sources */,
 				0BD88B1427C8388C009F514D /* ChemicalWaveView.swift in Sources */,
+				0BD88B2C27C92C5A009F514D /* ARProofViewModel.swift in Sources */,
 				0B9B1E4127C6A9D70021179D /* SoundSizerViewModel.swift in Sources */,
 				0B9B1E4E27C6F71D0021179D /* WaveMakerView.swift in Sources */,
 				0B9B1E4F27C6F71D0021179D /* WaveControllerView.swift in Sources */,
