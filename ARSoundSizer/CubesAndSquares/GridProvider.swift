@@ -48,7 +48,7 @@ class GridProvider {
                                 if index % 2 == 0 {
                                     return (x: x + offset, y: 0, z: z + (index / 2))
                                 }
-                                return (x: x + offset, y: 0, z: z)
+                                return (x: x + offset, y: 0, z: z + index*(y-1)/2)
                             }
                             
                             // even layers not base
@@ -57,7 +57,7 @@ class GridProvider {
                             if index % 2 == 0 {
                                 return (x: x + (index / 2), y: 0, z: z + offset )
                             }
-                            return (x: x, y: 0, z: z + offset)
+                            return (x: x + index*(y-2)/2, y: 0, z: z + offset)
                             
                         }()
                         grid.append(PositionRef(cubePosition: (x + offset, y, z + offset ), squarePosition: squarePosition, cubeID: i))

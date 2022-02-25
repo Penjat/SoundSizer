@@ -8,11 +8,11 @@ class ARProofViewModel: ObservableObject {
     var entities = [(ModelEntity, PositionRef)]()
     let gridSacing: Float = 0.25
     var planeAnchor: AnchorEntity?
-    let numberCubes = 4
+    let numberCubes = 5
     func createGrid() {
         let gridProvider = GridProvider()
         let grid = gridProvider.createGrid(numberCubes)
-        planeAnchor = AnchorEntity(world: [2,-2,2])
+        planeAnchor = AnchorEntity(world: [0.5,-1,0.5])
         
         for gridElement in grid {
             let boxMesh = MeshResource.generateBox(size: 0.2)
@@ -51,10 +51,10 @@ class ARProofViewModel: ObservableObject {
     }
     
     func cubeColor(_ id: Int) -> UIColor {
-        let theta = Double(id)/Double(numberCubes) * Double.pi*2
+        let theta = Double(id)/Double(numberCubes) * Double.pi*2 + 0.14
         let red = ((sin(theta)+1)/2)
-        let blue = ((sin(theta + Double.pi*2/3)+1)/2 )
-        let green = ((sin(theta + Double.pi*2/3*2)+1)/2 )
+        let blue = ((sin(theta + Double.pi*2/3)+1)/2)
+        let green = ((sin(theta + Double.pi*2/3*2)+1)/2)
         
         return UIColor.init(_colorLiteralRed: Float(red), green: Float(green), blue: Float(blue), alpha: 1.0)
     }
