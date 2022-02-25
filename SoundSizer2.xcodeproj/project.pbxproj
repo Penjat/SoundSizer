@@ -32,6 +32,7 @@
 		0B9B1E4F27C6F71D0021179D /* WaveControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E4D27C6F71D0021179D /* WaveControllerView.swift */; };
 		0B9B1E5127C6F8F30021179D /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E5027C6F8F30021179D /* WaveView.swift */; };
 		0BD88B1427C8388C009F514D /* ChemicalWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B1327C8388C009F514D /* ChemicalWaveView.swift */; };
+		0BD88B1B27C872C3009F514D /* ARProofView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B1A27C872C3009F514D /* ARProofView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		0B9B1E4D27C6F71D0021179D /* WaveControllerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveControllerView.swift; sourceTree = "<group>"; };
 		0B9B1E5027C6F8F30021179D /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		0BD88B1327C8388C009F514D /* ChemicalWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalWaveView.swift; sourceTree = "<group>"; };
+		0BD88B1A27C872C3009F514D /* ARProofView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARProofView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,10 +124,11 @@
 		0B9B1E2D27C697040021179D /* ARSoundSizer */ = {
 			isa = PBXGroup;
 			children = (
+				0BD88B1527C84A81009F514D /* Title */,
+				0BD88B1927C8727D009F514D /* CubesAndSquares */,
 				0BD88B1827C84AB5009F514D /* ChemicalWave */,
 				0BD88B1727C84AA6009F514D /* WaveMaker */,
 				0BD88B1627C84A8F009F514D /* SoundSizer */,
-				0BD88B1527C84A81009F514D /* Title */,
 				0B9B1E2E27C697040021179D /* AppDelegate.swift */,
 				0B9B1E3027C697040021179D /* ContentView.swift */,
 				0B9B1E3227C697040021179D /* Experience.rcproject */,
@@ -177,6 +180,14 @@
 				0BD88B1327C8388C009F514D /* ChemicalWaveView.swift */,
 			);
 			path = ChemicalWave;
+			sourceTree = "<group>";
+		};
+		0BD88B1927C8727D009F514D /* CubesAndSquares */ = {
+			isa = PBXGroup;
+			children = (
+				0BD88B1A27C872C3009F514D /* ARProofView.swift */,
+			);
+			path = CubesAndSquares;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BD88B1B27C872C3009F514D /* ARProofView.swift in Sources */,
 				0B9B1E3D27C6A2B50021179D /* OctaveView.swift in Sources */,
 				0B9B1E4527C6E9A40021179D /* ARSoundSizerView.swift in Sources */,
 				0B9B1E3127C697040021179D /* ContentView.swift in Sources */,

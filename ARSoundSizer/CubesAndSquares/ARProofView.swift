@@ -2,23 +2,22 @@ import SwiftUI
 import RealityKit
 import Combine
 
-struct ChemicalWaveView : View {
-    
+class ARProofViewModel: ObservableObject {
+    var arView: ARView?
+}
+
+struct ARProofView : View {
+    @StateObject var viewModel = ARProofViewModel()
     var body: some View {
-        
-        ARChemicalWaveViewContainer()
-            
-        
+        MyARViewContainer(viewModel: viewModel)
         .edgesIgnoringSafeArea(.all)
     }
 }
 
-struct ARChemicalWaveViewContainer: UIViewRepresentable {
-//    let viewModel: SoundSizerViewModel
+struct MyARViewContainer: UIViewRepresentable {
+    let viewModel: ARProofViewModel
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero, cameraMode: .ar,  automaticallyConfigureSession: true)
-//        viewModel.arView = arView
-        arView.environment.background = .color(.blue)
         
         let pointLight = PointLight()
         pointLight.light.intensity = 10000
@@ -31,28 +30,14 @@ struct ARChemicalWaveViewContainer: UIViewRepresentable {
         let planeMaterial = SimpleMaterial(color: .white, roughness: 0.5, isMetallic: true)
         
         let planeEntity = ModelEntity(mesh: planeMesh, materials: [planeMaterial])
-        let planeAnchor = AnchorEntity(world: [0,-5,0])
+        let planeAnchor = AnchorEntity(world: [10,-2,2])
         
         planeAnchor.addChild(planeEntity)
         arView.scene.addAnchor(planeAnchor)
         
-        let sphereMesh = MeshResource.generateBox(size: 0.2)
-        let sphereMaterial = SimpleMaterial(color: .purple, roughness: 0.2, isMetallic: true)
         
-        let sphereEntity = ModelEntity(mesh: sphereMesh, materials: [sphereMaterial])
-        let shpereAnchor = AnchorEntity(world: [0,1,-2])
-        
-        shpereAnchor.addChild(sphereEntity)
-        arView.scene.addAnchor(shpereAnchor)
-        
-//        let camera = PerspectiveCamera()
-//        let cameraAnchor = AnchorEntity(world: [0,1,1])
-//        cameraAnchor.addChild(camera)
-        
-//        arView.scene.addAnchor(cameraAnchor)
         return arView
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
-    
 }

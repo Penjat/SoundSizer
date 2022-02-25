@@ -13,6 +13,9 @@ struct TitleView: View {
                 NavigationLink("Chemical Wave") {
                     ChemicalWaveView()
                 }
+                NavigationLink("Cubes & Squares") {
+                    ARProofView()
+                }
             }.font(.title.bold())
         }
     }
