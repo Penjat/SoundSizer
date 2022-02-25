@@ -1,5 +1,6 @@
 import Combine
 import RealityKit
+import SwiftUI
 
 class ARProofViewModel: ObservableObject {
     var arView: ARView?
@@ -14,8 +15,7 @@ class ARProofViewModel: ObservableObject {
         
         for gridElement in grid {
             let boxMesh = MeshResource.generateBox(size: 0.2)
-            let boxMaterial = SimpleMaterial(color: .purple, roughness: 0.2, isMetallic: true)
-            
+            let boxMaterial = SimpleMaterial(color: UIColor.init(_colorLiteralRed: Float(gridElement.cubeID)*0.2, green: 0.0, blue: 0.5, alpha: 1.0), roughness: 0.2, isMetallic: true)
             
             let x: Float = Float(cubeposition ? gridElement.cubePosition.x : gridElement.squarePosition.x)*gridSacing
             let y: Float = Float(cubeposition ? gridElement.cubePosition.y : gridElement.squarePosition.y)*gridSacing
@@ -46,8 +46,6 @@ class ARProofViewModel: ObservableObject {
                 
             entity.move(to: Transform(scale: [1,1,1], rotation: simd_quatf.init(), translation: [x,y,z]), relativeTo: planeAnchor, duration: 2.0)
             
-            
         }
-        
     }
 }

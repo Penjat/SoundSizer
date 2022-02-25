@@ -9,6 +9,7 @@ struct PositionRef: Equatable {
     
     let cubePosition: GridPosition
     let squarePosition: GridPosition
+    let cubeID: Int
 }
 
 class GridProvider {
@@ -59,7 +60,7 @@ class GridProvider {
                             return (x: x, y: 0, z: z + offset)
                             
                         }()
-                        grid.append(PositionRef(cubePosition: (x + offset, y, z + offset ), squarePosition: squarePosition))
+                        grid.append(PositionRef(cubePosition: (x + offset, y, z + offset ), squarePosition: squarePosition, cubeID: i))
                     }
                 }
             }
