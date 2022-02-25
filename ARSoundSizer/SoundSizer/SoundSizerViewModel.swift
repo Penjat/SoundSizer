@@ -8,6 +8,7 @@ class SoundSizerViewModel: ObservableObject {
     var arView: ARView?
     @Published var showBackground = false
     @Published var waveSize = 0.0
+    @Published var showingMenu = false
     var bag = Set<AnyCancellable>()
     
     func loadScene() {

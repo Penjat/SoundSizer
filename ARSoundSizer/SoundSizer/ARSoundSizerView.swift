@@ -11,11 +11,12 @@ struct ARSoundSizerView : View {
             VStack() {
                 Spacer()
                 HStack {
-                    Text(synth.isPlaying ? "\(synth.frequency)" : "")
+                    Text(synth.isPlaying ? "\(String(format: "%.1f", synth.frequency)) hz" : "")
                     Spacer()
-                    Text(synth.isPlaying ? "\(343.0/synth.frequency) meters" : "")
-                    Toggle("background", isOn: $viewModel.showBackground)
-                }.foregroundColor(.white).font(.system(size: 20))
+                    Text(sizeText)
+                }
+                .font(.title3.bold())
+                .foregroundColor(.white).font(.system(size: 20))
                 
                 ScrollView(.horizontal, showsIndicators: true) {
                     LazyHStack {
@@ -23,19 +24,35 @@ struct ARSoundSizerView : View {
                             OctaveView(octave: index)
                         }
                     }
-                }
-                .frame(height: 300)
-                .background(.ultraThinMaterial)
-            }.onAppear {
+                }.background(.ultraThinMaterial)
+                .frame(height: 250)
+            }
+            .onAppear {
                 viewModel.loadScene()
                 
             }.onChange(of: synth.isPlaying) { newValue in
                 viewModel.setObjectSize(size: Float(343.0)/synth.frequency)
                 print("setting size")
-            }
+            }.sheet(isPresented: $viewModel.showingMenu) {
+                VStack {
+                    Spacer()
+                    Toggle("background", isOn: $viewModel.showBackground)
+                    Spacer()
+                }
+            }.environmentObject(viewModel)
         }
+        .navigationBarItems(trailing: Toggle("menu", isOn: $viewModel.showingMenu))
         .environmentObject(synth)
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    var sizeText: String {
+        guard synth.isPlaying else {
+            return ""
+        }
+        
+        let size = 343.0/synth.frequency
+        return size > 1 ? "\(String(format: "%.1f", size)) meters" : "\(String(format: "%.2f", size * 100)) cm"
     }
 }
 
