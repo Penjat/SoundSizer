@@ -30,10 +30,22 @@ struct MyARViewContainer: UIViewRepresentable {
         let planeMaterial = SimpleMaterial(color: .white, roughness: 0.5, isMetallic: true)
         
         let planeEntity = ModelEntity(mesh: planeMesh, materials: [planeMaterial])
-        let planeAnchor = AnchorEntity(world: [10,-2,2])
+        let planeAnchor = AnchorEntity(world: [4,-2,2])
         
-        planeAnchor.addChild(planeEntity)
+//        planeAnchor.addChild(planeEntity)
         arView.scene.addAnchor(planeAnchor)
+        
+        for i in 0..<2 {
+            let sphereMesh = MeshResource.generateBox(size: 0.2)
+            let sphereMaterial = SimpleMaterial(color: .purple, roughness: 0.2, isMetallic: true)
+            let x: Float = -4 + Float(i)*0.25
+            let y: Float = 0.5
+            let z: Float = -4.0
+            
+            let sphereEntity = ModelEntity(mesh: sphereMesh, materials: [sphereMaterial])
+            sphereEntity.position = [x,y,z]
+            planeAnchor.addChild(sphereEntity)
+        }
         
         
         return arView

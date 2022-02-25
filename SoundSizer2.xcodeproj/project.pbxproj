@@ -33,7 +33,19 @@
 		0B9B1E5127C6F8F30021179D /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E5027C6F8F30021179D /* WaveView.swift */; };
 		0BD88B1427C8388C009F514D /* ChemicalWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B1327C8388C009F514D /* ChemicalWaveView.swift */; };
 		0BD88B1B27C872C3009F514D /* ARProofView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B1A27C872C3009F514D /* ARProofView.swift */; };
+		0BD88B2327C91CC1009F514D /* ARSoundSizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B2227C91CC1009F514D /* ARSoundSizerTests.swift */; };
+		0BD88B2A27C91FC9009F514D /* GridProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B2927C91FC9009F514D /* GridProvider.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0BD88B2427C91CC1009F514D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B6CD34427023ABF00420171 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B9B1E2B27C697040021179D;
+			remoteInfo = ARSoundSizer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0B6CD34C27023ABF00420171 /* SoundSizer2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundSizer2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +72,9 @@
 		0B9B1E5027C6F8F30021179D /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		0BD88B1327C8388C009F514D /* ChemicalWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalWaveView.swift; sourceTree = "<group>"; };
 		0BD88B1A27C872C3009F514D /* ARProofView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARProofView.swift; sourceTree = "<group>"; };
+		0BD88B2027C91CC1009F514D /* ARSoundSizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARSoundSizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BD88B2227C91CC1009F514D /* ARSoundSizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSoundSizerTests.swift; sourceTree = "<group>"; };
+		0BD88B2927C91FC9009F514D /* GridProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +92,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BD88B1D27C91CC0009F514D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,6 +107,7 @@
 			children = (
 				0B6CD34E27023ABF00420171 /* SoundSizer2 */,
 				0B9B1E2D27C697040021179D /* ARSoundSizer */,
+				0BD88B2127C91CC1009F514D /* ARSoundSizerTests */,
 				0B6CD34D27023ABF00420171 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +117,7 @@
 			children = (
 				0B6CD34C27023ABF00420171 /* SoundSizer2.app */,
 				0B9B1E2C27C697040021179D /* ARSoundSizer.app */,
+				0BD88B2027C91CC1009F514D /* ARSoundSizerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,8 +210,17 @@
 			isa = PBXGroup;
 			children = (
 				0BD88B1A27C872C3009F514D /* ARProofView.swift */,
+				0BD88B2927C91FC9009F514D /* GridProvider.swift */,
 			);
 			path = CubesAndSquares;
+			sourceTree = "<group>";
+		};
+		0BD88B2127C91CC1009F514D /* ARSoundSizerTests */ = {
+			isa = PBXGroup;
+			children = (
+				0BD88B2227C91CC1009F514D /* ARSoundSizerTests.swift */,
+			);
+			path = ARSoundSizerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +260,24 @@
 			productReference = 0B9B1E2C27C697040021179D /* ARSoundSizer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0BD88B1F27C91CC0009F514D /* ARSoundSizerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BD88B2627C91CC1009F514D /* Build configuration list for PBXNativeTarget "ARSoundSizerTests" */;
+			buildPhases = (
+				0BD88B1C27C91CC0009F514D /* Sources */,
+				0BD88B1D27C91CC0009F514D /* Frameworks */,
+				0BD88B1E27C91CC0009F514D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BD88B2527C91CC1009F514D /* PBXTargetDependency */,
+			);
+			name = ARSoundSizerTests;
+			productName = ARSoundSizerTests;
+			productReference = 0BD88B2027C91CC1009F514D /* ARSoundSizerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -242,6 +293,10 @@
 					};
 					0B9B1E2B27C697040021179D = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					0BD88B1F27C91CC0009F514D = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 0B9B1E2B27C697040021179D;
 					};
 				};
 			};
@@ -260,6 +315,7 @@
 			targets = (
 				0B6CD34B27023ABF00420171 /* SoundSizer2 */,
 				0B9B1E2B27C697040021179D /* ARSoundSizer */,
+				0BD88B1F27C91CC0009F514D /* ARSoundSizerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -283,6 +339,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BD88B1E27C91CC0009F514D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -303,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BD88B2A27C91FC9009F514D /* GridProvider.swift in Sources */,
 				0BD88B1B27C872C3009F514D /* ARProofView.swift in Sources */,
 				0B9B1E3D27C6A2B50021179D /* OctaveView.swift in Sources */,
 				0B9B1E4527C6E9A40021179D /* ARSoundSizerView.swift in Sources */,
@@ -322,7 +386,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BD88B1C27C91CC0009F514D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BD88B2327C91CC1009F514D /* ARSoundSizerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0BD88B2527C91CC1009F514D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B9B1E2B27C697040021179D /* ARSoundSizer */;
+			targetProxy = 0BD88B2427C91CC1009F514D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0B6CD35827023AC100420171 /* Debug */ = {
@@ -565,6 +645,44 @@
 			};
 			name = Release;
 		};
+		0BD88B2727C91CC1009F514D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L688AU9RCV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Penjat.ARSoundSizerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARSoundSizer.app/ARSoundSizer";
+			};
+			name = Debug;
+		};
+		0BD88B2827C91CC1009F514D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L688AU9RCV;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Penjat.ARSoundSizerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARSoundSizer.app/ARSoundSizer";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -591,6 +709,15 @@
 			buildConfigurations = (
 				0B9B1E3927C697050021179D /* Debug */,
 				0B9B1E3A27C697050021179D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BD88B2627C91CC1009F514D /* Build configuration list for PBXNativeTarget "ARSoundSizerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BD88B2727C91CC1009F514D /* Debug */,
+				0BD88B2827C91CC1009F514D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
