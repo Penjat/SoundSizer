@@ -8,14 +8,15 @@ class ARProofViewModel: ObservableObject {
     var entities = [(ModelEntity, PositionRef)]()
     let gridSacing: Float = 0.25
     var planeAnchor: AnchorEntity?
+    let numberCubes = 4
     func createGrid() {
         let gridProvider = GridProvider()
-        let grid = gridProvider.createGrid(4)
+        let grid = gridProvider.createGrid(numberCubes)
         planeAnchor = AnchorEntity(world: [2,-2,2])
         
         for gridElement in grid {
             let boxMesh = MeshResource.generateBox(size: 0.2)
-            let boxMaterial = SimpleMaterial(color: UIColor.init(_colorLiteralRed: Float(gridElement.cubeID)*0.2, green: 0.0, blue: 0.5, alpha: 1.0), roughness: 0.2, isMetallic: true)
+            let boxMaterial = SimpleMaterial(color: cubeColor(gridElement.cubeID), roughness: 0.2, isMetallic: true)
             
             let x: Float = Float(cubeposition ? gridElement.cubePosition.x : gridElement.squarePosition.x)*gridSacing
             let y: Float = Float(cubeposition ? gridElement.cubePosition.y : gridElement.squarePosition.y)*gridSacing
@@ -47,5 +48,14 @@ class ARProofViewModel: ObservableObject {
             entity.move(to: Transform(scale: [1,1,1], rotation: simd_quatf.init(), translation: [x,y,z]), relativeTo: planeAnchor, duration: 2.0)
             
         }
+    }
+    
+    func cubeColor(_ id: Int) -> UIColor {
+        let theta = Double(id)/Double(numberCubes) * Double.pi*2
+        let red = ((sin(theta)+1)/2)
+        let blue = ((sin(theta + Double.pi*2/3)+1)/2 )
+        let green = ((sin(theta + Double.pi*2/3*2)+1)/2 )
+        
+        return UIColor.init(_colorLiteralRed: Float(red), green: Float(green), blue: Float(blue), alpha: 1.0)
     }
 }
