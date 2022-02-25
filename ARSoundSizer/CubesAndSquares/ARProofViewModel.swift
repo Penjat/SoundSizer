@@ -6,7 +6,7 @@ class ARProofViewModel: ObservableObject {
     
     func createGrid() {
         let gridProvider = GridProvider()
-        let grid = gridProvider.createGrid(3)
+        let grid = gridProvider.createGrid(7)
         
         for gridElement in grid {
             let boxMesh = MeshResource.generateBox(size: 0.2)
@@ -19,7 +19,7 @@ class ARProofViewModel: ObservableObject {
             let boxEntity = ModelEntity(mesh: boxMesh, materials: [boxMaterial])
             boxEntity.position = [x,y,z]
             
-            let planeAnchor = AnchorEntity(world: [4,-2,2])
+            let planeAnchor = AnchorEntity(world: [2,-2,2])
             arView?.scene.addAnchor(planeAnchor)
             
             planeAnchor.addChild(boxEntity)
