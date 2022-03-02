@@ -15,6 +15,11 @@
 		0B6CD36027023B6300420171 /* Oscilator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD35F27023B6300420171 /* Oscilator.swift */; };
 		0B6CD3622703588D00420171 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD3612703588D00420171 /* KeyboardView.swift */; };
 		0B6CD364270362C300420171 /* OctaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD363270362C300420171 /* OctaveView.swift */; };
+		0B89D49627CF120A006FEB36 /* ChemicalWaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B89D49527CF120A006FEB36 /* ChemicalWaveViewModel.swift */; };
+		0B89D49827CF1336006FEB36 /* ChemicalNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B89D49727CF1336006FEB36 /* ChemicalNode.swift */; };
+		0B89D49B27CF1545006FEB36 /* FireflyContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B89D49A27CF1545006FEB36 /* FireflyContainerView.swift */; };
+		0B89D49D27CF16C8006FEB36 /* FireflyContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B89D49C27CF16C8006FEB36 /* FireflyContainerViewModel.swift */; };
+		0B89D49F27CF23DD006FEB36 /* Firefly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B89D49E27CF23DD006FEB36 /* Firefly.swift */; };
 		0B9B1E2F27C697040021179D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E2E27C697040021179D /* AppDelegate.swift */; };
 		0B9B1E3127C697040021179D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E3027C697040021179D /* ContentView.swift */; };
 		0B9B1E3327C697040021179D /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E3227C697040021179D /* Experience.rcproject */; };
@@ -58,6 +63,11 @@
 		0B6CD35F27023B6300420171 /* Oscilator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oscilator.swift; sourceTree = "<group>"; };
 		0B6CD3612703588D00420171 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		0B6CD363270362C300420171 /* OctaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctaveView.swift; sourceTree = "<group>"; };
+		0B89D49527CF120A006FEB36 /* ChemicalWaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalWaveViewModel.swift; sourceTree = "<group>"; };
+		0B89D49727CF1336006FEB36 /* ChemicalNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalNode.swift; sourceTree = "<group>"; };
+		0B89D49A27CF1545006FEB36 /* FireflyContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireflyContainerView.swift; sourceTree = "<group>"; };
+		0B89D49C27CF16C8006FEB36 /* FireflyContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireflyContainerViewModel.swift; sourceTree = "<group>"; };
+		0B89D49E27CF23DD006FEB36 /* Firefly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firefly.swift; sourceTree = "<group>"; };
 		0B9B1E2C27C697040021179D /* ARSoundSizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARSoundSizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B9B1E2E27C697040021179D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B9B1E3027C697040021179D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -147,6 +157,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0B89D49927CF14DC006FEB36 /* Fireflies */ = {
+			isa = PBXGroup;
+			children = (
+				0B89D49A27CF1545006FEB36 /* FireflyContainerView.swift */,
+				0B89D49C27CF16C8006FEB36 /* FireflyContainerViewModel.swift */,
+				0B89D49E27CF23DD006FEB36 /* Firefly.swift */,
+			);
+			path = Fireflies;
+			sourceTree = "<group>";
+		};
 		0B9B1E2D27C697040021179D /* ARSoundSizer */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +175,7 @@
 				0BD88B1827C84AB5009F514D /* ChemicalWave */,
 				0BD88B1727C84AA6009F514D /* WaveMaker */,
 				0BD88B1627C84A8F009F514D /* SoundSizer */,
+				0B89D49927CF14DC006FEB36 /* Fireflies */,
 				0B9B1E2E27C697040021179D /* AppDelegate.swift */,
 				0B9B1E3027C697040021179D /* ContentView.swift */,
 				0B9B1E3227C697040021179D /* Experience.rcproject */,
@@ -204,6 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				0BD88B1327C8388C009F514D /* ChemicalWaveView.swift */,
+				0B89D49527CF120A006FEB36 /* ChemicalWaveViewModel.swift */,
+				0B89D49727CF1336006FEB36 /* ChemicalNode.swift */,
 			);
 			path = ChemicalWave;
 			sourceTree = "<group>";
@@ -370,6 +393,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BD88B2A27C91FC9009F514D /* GridProvider.swift in Sources */,
+				0B89D49827CF1336006FEB36 /* ChemicalNode.swift in Sources */,
+				0B89D49627CF120A006FEB36 /* ChemicalWaveViewModel.swift in Sources */,
+				0B89D49B27CF1545006FEB36 /* FireflyContainerView.swift in Sources */,
 				0BD88B1B27C872C3009F514D /* ARProofView.swift in Sources */,
 				0B9B1E3D27C6A2B50021179D /* OctaveView.swift in Sources */,
 				0B9B1E4527C6E9A40021179D /* ARSoundSizerView.swift in Sources */,
@@ -378,9 +404,11 @@
 				0BD88B2C27C92C5A009F514D /* ARProofViewModel.swift in Sources */,
 				0B9B1E4127C6A9D70021179D /* SoundSizerViewModel.swift in Sources */,
 				0B9B1E4E27C6F71D0021179D /* WaveMakerView.swift in Sources */,
+				0B89D49D27CF16C8006FEB36 /* FireflyContainerViewModel.swift in Sources */,
 				0B9B1E4F27C6F71D0021179D /* WaveControllerView.swift in Sources */,
 				0B9B1E3E27C6A2B70021179D /* Oscilator.swift in Sources */,
 				0B9B1E3F27C6A2BB0021179D /* Synth.swift in Sources */,
+				0B89D49F27CF23DD006FEB36 /* Firefly.swift in Sources */,
 				0B9B1E4327C6E90D0021179D /* TitleView.swift in Sources */,
 				0B9B1E5127C6F8F30021179D /* WaveView.swift in Sources */,
 				0B9B1E3C27C6A2B20021179D /* KeyboardView.swift in Sources */,

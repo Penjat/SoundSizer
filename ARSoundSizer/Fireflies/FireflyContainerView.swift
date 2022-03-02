@@ -2,21 +2,20 @@ import SwiftUI
 import RealityKit
 import Combine
 
-struct ChemicalWaveView : View {
-    @StateObject var viewModel = ChemicalWaveViewModel()
+struct FireflyContainerView : View {
+    @StateObject var viewModel = FireflyContainerViewModel()
     var body: some View {
-        ChemicalWaveContainer(viewModel: viewModel)
-            .edgesIgnoringSafeArea(.all).onAppear {
-                viewModel.buildScene()
-            }
+        FireflyContainerViewContainer(viewModel: viewModel)
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
-struct ChemicalWaveContainer: UIViewRepresentable {
-    let viewModel: ChemicalWaveViewModel
+struct FireflyContainerViewContainer: UIViewRepresentable {
+    let viewModel: FireflyContainerViewModel
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero, cameraMode: .ar,  automaticallyConfigureSession: true)
         viewModel.setView(arView)
+        
         return arView
     }
     

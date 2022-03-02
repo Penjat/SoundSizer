@@ -19,7 +19,7 @@ class ARProofViewModel: ObservableObject {
         let gridProvider = GridProvider()
         let grid = gridProvider.createGrid(numberCubes)
         planeAnchor = AnchorEntity(world: [-0.5,-1,-0.5])
-        
+        arView?.scene.addAnchor(planeAnchor!)
         for gridElement in grid {
             let boxMesh = MeshResource.generateBox(size: cubeSize)
             let boxMaterial = SimpleMaterial(color: cubeColor(gridElement.cubeID), roughness: 0.2, isMetallic: true)
@@ -31,9 +31,6 @@ class ARProofViewModel: ObservableObject {
             let boxEntity = ModelEntity(mesh: boxMesh, materials: [boxMaterial])
             entities.append((boxEntity, gridElement))
             boxEntity.position = [x,y,z]
-            
-            arView?.scene.addAnchor(planeAnchor!)
-            
             planeAnchor?.addChild(boxEntity)
         }
     }

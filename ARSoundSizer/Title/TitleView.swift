@@ -16,6 +16,9 @@ struct TitleView: View {
                 NavigationLink("Cubes & Squares") {
                     ARProofView()
                 }
+                NavigationLink("Fireflies") {
+                    FireflyContainerView()
+                }
             }.font(.title.bold())
         }
     }
