@@ -9,11 +9,12 @@ enum PressAction: String, CaseIterable {
 
 class ChemicalWaveViewModel: ObservableObject {
     private enum Constants {
-        static let sphereSize: Float = 0.05
-        static let numRows = 30
-        static let numCols = 30
-        static let gridSpace: Float = 0.02
-        static let scaleAmt: Float = 3.0
+        static let sphereSize: Float = 0.01
+        static let numRows = 10
+        static let numCols = 10
+        static let numLayer = 5
+        static let gridSpace: Float = 0.1
+        static let scaleAmt: Float = 1.4
         static let waveSpeed = 0.3
         static let chargeTime = 4
     }
@@ -24,9 +25,9 @@ class ChemicalWaveViewModel: ObservableObject {
     var bag = Set<AnyCancellable>()
     
     @Published var pressAction = PressAction.fire
-
+    
     var gridSpacing: Float {
-        return Constants.sphereSize*2 + Constants.gridSpace
+        return Constants.sphereSize*3 + Constants.gridSpace
     }
     
     func setView(_ view: ARView) {
@@ -43,16 +44,18 @@ class ChemicalWaveViewModel: ObservableObject {
         let node = try! ARAssets.loadBox().chemicalNode
         for row in 0..<Constants.numRows {
             for col in 0..<Constants.numCols {
-                let x: Float = Float(row)*gridSpacing
-                let y: Float = Float(0)
-                let z: Float = Float(col)*(-1)*gridSpacing
-                
-                let boxEntity = node!.clone(recursive: true)
-                let node = ChemicalNode(position: (x: row, y: 0, z: col))
-                entities[boxEntity] = node
-                
-                boxEntity.position = [x,y,z]
-                gridAnchor?.addChild(boxEntity)
+                for lay in 0..<Constants.numLayer {
+                    let x: Float = Float(row)*gridSpacing
+                    let y: Float = Float(lay)*gridSpacing
+                    let z: Float = Float(col)*(-1)*gridSpacing
+                    
+                    let boxEntity = node!.clone(recursive: true)
+                    let node = ChemicalNode(position: (x: row, y: lay, z: col))
+                    entities[boxEntity] = node
+                    
+                    boxEntity.position = [x,y,z]
+                    gridAnchor?.addChild(boxEntity)
+                }
             }
         }
         
@@ -78,19 +81,19 @@ class ChemicalWaveViewModel: ObservableObject {
                             value.state == .idle && abs(value.position.x - chemicalNode.position.x) <= 1 && abs(value.position.y - chemicalNode.position.y) <= 1 && abs(value.position.z - chemicalNode.position.z) <= 1
                         }.forEach { (key: Entity, value: ChemicalNode) in
                             value.state = .firing
-                            let rotation = Transform(scale: SIMD3<Float>(1.0, Constants.scaleAmt, 1.0), translation: key.position)
+                            let rotation = Transform(scale: SIMD3<Float>(Constants.scaleAmt, Constants.scaleAmt, Constants.scaleAmt), translation: key.position)
                             
                             
                             key.move(to: rotation,
-                                        relativeTo: self.gridAnchor,
-                                        duration: 0.5,
-                                        timingFunction: .easeInOut)
+                                     relativeTo: self.gridAnchor,
+                                     duration: 0.5,
+                                     timingFunction: .easeInOut)
                         }
                         chemicalNode.state = .charging(timeLeft: Constants.chargeTime)
                         entity.move(to: Transform(scale: SIMD3<Float>(1.0, 1.0, 1.0), translation: entity.position),
                                     relativeTo: self.gridAnchor,
                                     duration: Constants.waveSpeed*Double(Constants.chargeTime),
-                                timingFunction: .easeInOut)
+                                    timingFunction: .easeInOut)
                     default:
                         break
                     }
@@ -127,7 +130,7 @@ class ChemicalWaveViewModel: ObservableObject {
             return
         }
         node.state = .firing
-        let rotation = Transform(scale: SIMD3<Float>(1.0, Constants.scaleAmt, 1.0), translation: entity.position)
+        let rotation = Transform(scale: SIMD3<Float>(Constants.scaleAmt, Constants.scaleAmt, Constants.scaleAmt), translation: entity.position)
         
         entity.move(to: rotation,
                     relativeTo: self.gridAnchor,
