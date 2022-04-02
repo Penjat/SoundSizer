@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0ECC8627F7991B00BBEA46 /* ARAssets.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 0B0ECC8427F7989B00BBEA46 /* ARAssets.rcproject */; };
 		0B6CD35027023ABF00420171 /* SoundSizer2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD34F27023ABF00420171 /* SoundSizer2App.swift */; };
 		0B6CD35227023ABF00420171 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD35127023ABF00420171 /* ContentView.swift */; };
 		0B6CD35427023AC100420171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B6CD35327023AC100420171 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B0ECC8427F7989B00BBEA46 /* ARAssets.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = ARAssets.rcproject; sourceTree = "<group>"; };
 		0B6CD34C27023ABF00420171 /* SoundSizer2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundSizer2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6CD34F27023ABF00420171 /* SoundSizer2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSizer2App.swift; sourceTree = "<group>"; };
 		0B6CD35127023ABF00420171 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				0BD88B1627C84A8F009F514D /* SoundSizer */,
 				0B89D49927CF14DC006FEB36 /* Fireflies */,
 				0B9B1E2E27C697040021179D /* AppDelegate.swift */,
+				0B0ECC8427F7989B00BBEA46 /* ARAssets.rcproject */,
 				0B9B1E3027C697040021179D /* ContentView.swift */,
 				0B9B1E3227C697040021179D /* Experience.rcproject */,
 				0B9B1E3427C697050021179D /* Assets.xcassets */,
@@ -402,6 +405,7 @@
 				0B9B1E3127C697040021179D /* ContentView.swift in Sources */,
 				0BD88B1427C8388C009F514D /* ChemicalWaveView.swift in Sources */,
 				0BD88B2C27C92C5A009F514D /* ARProofViewModel.swift in Sources */,
+				0B0ECC8627F7991B00BBEA46 /* ARAssets.rcproject in Sources */,
 				0B9B1E4127C6A9D70021179D /* SoundSizerViewModel.swift in Sources */,
 				0B9B1E4E27C6F71D0021179D /* WaveMakerView.swift in Sources */,
 				0B89D49D27CF16C8006FEB36 /* FireflyContainerViewModel.swift in Sources */,
