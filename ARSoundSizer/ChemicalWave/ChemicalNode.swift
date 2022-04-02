@@ -8,7 +8,9 @@ class ChemicalNode {
     var state = NodeState.idle
 }
 
-enum NodeState {
+enum NodeState: Equatable {
     case idle
-    case charging
+    case firing
+    case charging(timeLeft: Int)
+    case blocked
 }

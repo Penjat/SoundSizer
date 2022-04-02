@@ -5,10 +5,19 @@ import Combine
 struct ChemicalWaveView : View {
     @StateObject var viewModel = ChemicalWaveViewModel()
     var body: some View {
-        ChemicalWaveContainer(viewModel: viewModel)
-            .edgesIgnoringSafeArea(.all).onAppear {
-                viewModel.buildScene()
-            }
+        ZStack {
+            ChemicalWaveContainer(viewModel: viewModel)
+                .edgesIgnoringSafeArea(.all)
+                .onAppear {
+                    viewModel.buildScene()
+                }.navigationBarItems(leading: Picker("press action", selection: $viewModel.pressAction) {
+                    ForEach(PressAction.allCases, id: \.self) { action in
+                        Text("\(action.rawValue)")
+                    }
+                }.pickerStyle(SegmentedPickerStyle()))
+            
+        }
+        
     }
 }
 
