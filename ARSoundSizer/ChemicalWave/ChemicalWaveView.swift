@@ -17,7 +17,6 @@ struct ChemicalWaveView : View {
                 }.pickerStyle(SegmentedPickerStyle()))
             
         }
-        
     }
 }
 
