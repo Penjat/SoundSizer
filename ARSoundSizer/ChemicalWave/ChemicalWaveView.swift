@@ -3,6 +3,7 @@ import RealityKit
 import Combine
 
 struct ChemicalWaveView : View {
+    @State var showMenu = false
     @StateObject var viewModel = ChemicalWaveViewModel()
     var body: some View {
         ZStack {
@@ -14,8 +15,12 @@ struct ChemicalWaveView : View {
                     ForEach(PressAction.allCases, id: \.self) { action in
                         Text("\(action.rawValue)")
                     }
-                }.pickerStyle(SegmentedPickerStyle()))
-            
+                }.pickerStyle(SegmentedPickerStyle()), trailing: Button("menu", action: {
+                    showMenu = true
+                }) )
+                .sheet(isPresented: $showMenu) {
+                    ChemicalWaveMenu().environmentObject(viewModel)
+                }
         }
     }
 }

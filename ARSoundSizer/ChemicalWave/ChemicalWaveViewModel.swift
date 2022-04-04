@@ -14,15 +14,13 @@ enum PressAction: String, CaseIterable {
 class ChemicalWaveViewModel: ObservableObject {
     private enum Constants {
         static let sphereSize: Float = 0.1
-        static let numRows = 10
-        static let numCols = 10
-        static let numLayer = 5
+        
         static let gridSpace: Float = 0.02
         static let scaleAmt: Float = 1.4
         static let blockedSize: Float = 1.0
         static let idleSize: Float = 1.0
         static let waveSpeed = 0.3
-        static let chargeTime = 4
+        
         static let idleMaterial = SimpleMaterial(color: .gray, isMetallic: false)
         static let activeMaterial = SimpleMaterial(color: .orange, isMetallic: false)
         static let chargingMaterial = SimpleMaterial(color: .blue, isMetallic: false)
@@ -36,6 +34,11 @@ class ChemicalWaveViewModel: ObservableObject {
     var bag = Set<AnyCancellable>()
     
     @Published var pressAction = PressAction.fire
+    
+    @Published var chargeTime = 4.0
+    @Published var numRows = 30
+    @Published var numCols = 30
+    @Published var numLayer = 1
     
     var gridSpacing: Float {
         return Constants.sphereSize + Constants.gridSpace
@@ -54,10 +57,7 @@ class ChemicalWaveViewModel: ObservableObject {
         arView?.scene.addAnchor(gridAnchor!)
 //        let node = try! ARAssets.loadBox().chemicalNode
         // Create the cube
-        let cubeModel = ModelEntity(
-            mesh: .generateBox(size: Constants.sphereSize),
-         materials: []
-        )
+        
         // Fetch the default metal library
         let mtlLibrary = MTLCreateSystemDefaultDevice()!
           .makeDefaultLibrary()!
@@ -68,29 +68,10 @@ class ChemicalWaveViewModel: ObservableObject {
           named: "myShader", in: mtlLibrary
         )
         
-        cubeModel.model?.materials = [
-            Constants.idleMaterial]
-        cubeModel.collision = CollisionComponent(shapes: [.generateBox(size: SIMD3<Float>(Constants.sphereSize, Constants.sphereSize, Constants.sphereSize))])
-        cubeModel.setScale(SIMD3<Float>(Constants.idleSize, Constants.idleSize, Constants.idleSize), relativeTo: gridAnchor)
-        for row in 0..<Constants.numRows {
-            for col in 0..<Constants.numCols {
-                for lay in 0..<Constants.numLayer {
-                    let x: Float = Float(row)*gridSpacing
-                    let y: Float = Float(lay)*gridSpacing
-                    let z: Float = Float(col)*(-1)*gridSpacing
-                    
-                    let boxEntity = cubeModel.clone(recursive: true)
-                    let node = ChemicalNode(position: (x: row, y: lay, z: col))
-                    entities[boxEntity] = node
-                    
-                    boxEntity.position = [x,y,z]
-                    gridAnchor?.addChild(boxEntity)
-                }
-            }
-        }
+        createGrid()
         
         Timer.publish(every: 0.5, on: .main, in: .default)
-            .autoconnect().sink { click in
+            .autoconnect().sink { [self] click in
                 self.entities.forEach { (entity, chemicalNode) in
                     switch chemicalNode.state {
                     case .charging(let timeLeft):
@@ -122,16 +103,47 @@ class ChemicalWaveViewModel: ObservableObject {
                                      timingFunction: .easeInOut)
                             
                         }
-                        chemicalNode.state = .charging(timeLeft: Constants.chargeTime)
+                        chemicalNode.state = .charging(timeLeft: Int(chargeTime))
                         entity.move(to: Transform(scale: SIMD3<Float>(Constants.idleSize, Constants.idleSize, Constants.idleSize), translation: entity.position),
                                     relativeTo: self.gridAnchor,
-                                    duration: Constants.waveSpeed*Double(Constants.chargeTime),
+                                    duration: Constants.waveSpeed*Double(Int(chargeTime)),
                                     timingFunction: .easeInOut)
                     default:
                         break
                     }
                 }
             }.store(in: &bag)
+    }
+    
+    func createGrid() {
+        entities.forEach { (key: ModelEntity, value: ChemicalNode) in
+            key.removeFromParent()
+        }
+        entities = [:]
+        let cubeModel = ModelEntity(
+            mesh: .generateBox(size: Constants.sphereSize),
+         materials: []
+        )
+        cubeModel.model?.materials = [
+            Constants.idleMaterial]
+        cubeModel.collision = CollisionComponent(shapes: [.generateBox(size: SIMD3<Float>(Constants.sphereSize, Constants.sphereSize, Constants.sphereSize))])
+        cubeModel.setScale(SIMD3<Float>(Constants.idleSize, Constants.idleSize, Constants.idleSize), relativeTo: gridAnchor)
+        for row in 0..<numRows {
+            for col in 0..<numCols {
+                for lay in 0..<numLayer {
+                    let x: Float = Float(row)*gridSpacing
+                    let y: Float = Float(lay)*gridSpacing
+                    let z: Float = Float(col)*(-1)*gridSpacing
+                    
+                    let boxEntity = cubeModel.clone(recursive: true)
+                    let node = ChemicalNode(position: (x: row, y: lay, z: col))
+                    entities[boxEntity] = node
+                    
+                    boxEntity.position = [x,y,z]
+                    gridAnchor?.addChild(boxEntity)
+                }
+            }
+        }
     }
     
     @objc func handleTap(rec: UITapGestureRecognizer){

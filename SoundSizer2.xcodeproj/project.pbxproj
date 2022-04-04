@@ -38,6 +38,7 @@
 		0B9B1E4E27C6F71D0021179D /* WaveMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E4C27C6F71D0021179D /* WaveMakerView.swift */; };
 		0B9B1E4F27C6F71D0021179D /* WaveControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E4D27C6F71D0021179D /* WaveControllerView.swift */; };
 		0B9B1E5127C6F8F30021179D /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9B1E5027C6F8F30021179D /* WaveView.swift */; };
+		0BB03F1127FA54BF007FFBE8 /* ChemicalWaveMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB03F1027FA54BF007FFBE8 /* ChemicalWaveMenu.swift */; };
 		0BD88B1427C8388C009F514D /* ChemicalWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B1327C8388C009F514D /* ChemicalWaveView.swift */; };
 		0BD88B1B27C872C3009F514D /* ARProofView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B1A27C872C3009F514D /* ARProofView.swift */; };
 		0BD88B2327C91CC1009F514D /* ARSoundSizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD88B2227C91CC1009F514D /* ARSoundSizerTests.swift */; };
@@ -85,6 +86,7 @@
 		0B9B1E4C27C6F71D0021179D /* WaveMakerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveMakerView.swift; sourceTree = "<group>"; };
 		0B9B1E4D27C6F71D0021179D /* WaveControllerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveControllerView.swift; sourceTree = "<group>"; };
 		0B9B1E5027C6F8F30021179D /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
+		0BB03F1027FA54BF007FFBE8 /* ChemicalWaveMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalWaveMenu.swift; sourceTree = "<group>"; };
 		0BD88B1327C8388C009F514D /* ChemicalWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChemicalWaveView.swift; sourceTree = "<group>"; };
 		0BD88B1A27C872C3009F514D /* ARProofView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARProofView.swift; sourceTree = "<group>"; };
 		0BD88B2027C91CC1009F514D /* ARSoundSizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARSoundSizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +235,7 @@
 				0BD88B1327C8388C009F514D /* ChemicalWaveView.swift */,
 				0B89D49527CF120A006FEB36 /* ChemicalWaveViewModel.swift */,
 				0B89D49727CF1336006FEB36 /* ChemicalNode.swift */,
+				0BB03F1027FA54BF007FFBE8 /* ChemicalWaveMenu.swift */,
 			);
 			path = ChemicalWave;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				0B89D49D27CF16C8006FEB36 /* FireflyContainerViewModel.swift in Sources */,
 				0B9B1E4F27C6F71D0021179D /* WaveControllerView.swift in Sources */,
 				0B9B1E3E27C6A2B70021179D /* Oscilator.swift in Sources */,
+				0BB03F1127FA54BF007FFBE8 /* ChemicalWaveMenu.swift in Sources */,
 				0B9B1E3F27C6A2BB0021179D /* Synth.swift in Sources */,
 				0B89D49F27CF23DD006FEB36 /* Firefly.swift in Sources */,
 				0B9B1E4327C6E90D0021179D /* TitleView.swift in Sources */,
