@@ -18,11 +18,11 @@ struct WaveControllerView: View {
                 ForEach(WaveType.allCases, id: \.rawValue){ waveType in
                     Text("\(waveType.rawValue)").tag(waveType)
                 }
-            }.pickerStyle(SegmentedPickerStyle()).frame(height: 100).padding()
+            }
             Group {
                 HStack {
                     Text(String(format: "%.02f", frequency))
-                    Slider(value: $frequency, in: 0.5...8.0).onChange(of: frequency) { _ in
+                    Slider(value: $frequency, in: 1.0...8.0).onChange(of: frequency) { _ in
                         setWave()
                     }
                 }
@@ -46,9 +46,9 @@ struct WaveControllerView: View {
                         setWave()
                     }
                 }
-            }.frame(width: 250)
+            }
                 .disabled(!isOn)
-        }.padding([.top, .bottom])
+        }.padding()
             .border(Color.white, width: 4)
             .onChange(of: waveType) { _ in
                 setWave()
@@ -58,7 +58,7 @@ struct WaveControllerView: View {
     }
     
     func setWave() {
-        wav = isOn ? { waveType.waveForm($0*frequency + phase)*magnitude + lift}: { (_:Double) in 0}
+        wav = isOn ? { waveType.waveForm($0*frequency + phase)*magnitude + lift} : { (_:Double) in 0}
     }
 }
 

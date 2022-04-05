@@ -221,9 +221,9 @@
 		0BD88B1727C84AA6009F514D /* WaveMaker */ = {
 			isa = PBXGroup;
 			children = (
-				0B9B1E4D27C6F71D0021179D /* WaveControllerView.swift */,
 				0B9B1E4627C6EB200021179D /* WaveMakerContainerView.swift */,
 				0B9B1E4C27C6F71D0021179D /* WaveMakerView.swift */,
+				0B9B1E4D27C6F71D0021179D /* WaveControllerView.swift */,
 				0B9B1E5027C6F8F30021179D /* WaveView.swift */,
 			);
 			path = WaveMaker;

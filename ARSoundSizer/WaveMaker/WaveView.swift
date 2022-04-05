@@ -9,7 +9,7 @@ struct WaveView: View {
     var body: some View {
         VStack {
             Text(title)
-            HStack(spacing: 4) {
+            HStack(spacing: 0) {
                 ForEach(0..<100){ index in
                     let wavOutput = (wav(Double(index)/100.0*Double.pi*2*frequency)/magnitude+1)/2
                     let height = wavOutput*30
