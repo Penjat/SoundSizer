@@ -12,11 +12,7 @@ struct Oscillator {
     
     static var sine: Signal = { frequency, time in
         let theta = Double(2.0 * Float.pi * frequency * time)
-        let wav1 = sin(theta)
-        let wav2 = sin(theta*4.9)
-        let wav3 = sawWave(theta*6.2)/4
-        
-        return Oscillator.amplitude * Float(wav1 + wav2 + wav3)/2
+        return Oscillator.amplitude * Float(sin(theta))
     }
 }
 
