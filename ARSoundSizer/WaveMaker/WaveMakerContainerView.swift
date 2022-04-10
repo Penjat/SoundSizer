@@ -15,8 +15,20 @@ struct WaveMakerContainerView: View {
     @State var bag = Set<AnyCancellable>()
     var body: some View {
         VStack {
-            WaveView(frequency: 1.0, wav: synth.wav, color: .blue)
-                .frame(width: 400, height: 200).border(.blue)
+            Toggle("wav cap", isOn: $synth.wavCap)
+            ZStack {
+                WaveView(frequency: 1.0, wav: synth.wav, color: .white)
+                    
+                
+                WaveView(frequency: 1.0, wav: viewModel.wav1, color: Color(red: 1.0, green: 0.0, blue: 1.0, opacity: 0.3))
+                    
+                WaveView(frequency: 1.0, wav: viewModel.wav2, color: Color(red: 0.0, green: 0.0, blue: 1.0, opacity: 0.3))
+                    
+                WaveView(frequency: 1.0, wav: viewModel.wav3, color: Color(red: 0.0, green: 1.0, blue: 0.0, opacity: 0.3))
+                    
+                WaveView(frequency: 1.0, wav: viewModel.wav4, color: Color(red: 1.0, green: 0.0, blue: 0.0, opacity: 0.3))
+                    
+            }.frame(width: 400, height: 200).border(.blue)
             
             TabView {
                 WaveControllerView(wav: $viewModel.wav1, maxMagnitude: 1)

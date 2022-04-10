@@ -266,6 +266,94 @@
                   "7F5F1ADC-E5E4-4EF5-A5B5-FC43B071FFA5" : null,
                   "92DB8552-F664-41D5-9F2B-7BEF9C8ADF3E" : null,
                   "632E476F-1E55-4E30-9723-1C51DD2E8B89" : null,
+                  "9129EEAA-DDE4-4E07-BD62-7A61875F9187" : {
+                    "overrides" : {
+                      "arguments" : [
+                        [
+                          "bevelRadius",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.0066052760314941426
+                          }
+                        ],
+                        [
+                          "depth",
+                          {
+                            "typeName" : "Double",
+                            "value" : 1
+                          }
+                        ],
+                        [
+                          "height",
+                          {
+                            "typeName" : "Double",
+                            "value" : 0.10000000000000001
+                          }
+                        ],
+                        [
+                          "material",
+                          {
+                            "typeName" : "String",
+                            "value" : "paintEnamelMatte"
+                          }
+                        ],
+                        [
+                          "type",
+                          {
+                            "typeName" : "String",
+                            "value" : "box"
+                          }
+                        ],
+                        [
+                          "width",
+                          {
+                            "typeName" : "Double",
+                            "value" : 1
+                          }
+                        ]
+                      ],
+                      "factory" : {
+                        "identifier" : "com.apple.rc.af.CoreAssetFactories.PrimitiveShapeAssetFactory",
+                        "version" : "1.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "1F5E7B9D-63D1-42A1-B2B8-9129AFE0441E"
+                          }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "WhiteKey"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0.76077312231063843,
+                        3.6321583962717341e-08,
+                        0,
+                        1
+                      ]
+                    }
+                  },
                   "B91C7CA3-4AB1-4253-9A84-07383168A8A8" : null
                 },
                 "factory" : null,
@@ -285,9 +373,9 @@
                 "cameraTransform" : [
                   0.99999994039535522,
                   0,
-                  -0,
                   0,
-                  -0,
+                  0,
+                  0,
                   0.87457317113876343,
                   -0.48489353060722351,
                   0,
@@ -295,9 +383,9 @@
                   0.48489353060722351,
                   0.87457317113876343,
                   0,
-                  0.052128240466117859,
-                  0.23533438146114349,
-                  0.31564223766326904,
+                  0.78029102087020874,
+                  0.81031382083892822,
+                  1.5057219266891479,
                   1
                 ],
                 "sceneTransform" : [

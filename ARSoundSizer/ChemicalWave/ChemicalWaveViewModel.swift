@@ -78,9 +78,6 @@ class ChemicalWaveViewModel: ObservableObject {
         // Fetch the default metal library
         let mtlLibrary = MTLCreateSystemDefaultDevice()!
           .makeDefaultLibrary()!
-        // Fetch the default metal library
-        // Fetch the default metal library
-        
         let geometryShader = CustomMaterial.SurfaceShader(
           named: "myShader", in: mtlLibrary
         )

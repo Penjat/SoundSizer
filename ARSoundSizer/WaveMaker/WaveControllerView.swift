@@ -7,47 +7,59 @@ struct WaveControllerView: View {
     @State var phase = 0.0
     @State var waveType = WaveType.SIN
     @State var isOn = true
-    @State var lift = 1.0
+    @State var lift = 0.0
     var maxMagnitude: Double = 1.0
     var body: some View {
-        VStack(spacing: 0.0) {
-            Toggle(isOn: $isOn) {
-                Text(isOn ? "on" : "off")
-            }
-            Picker(selection: $waveType, label: Text("")) {
-                ForEach(WaveType.allCases, id: \.rawValue){ waveType in
-                    Text("\(waveType.rawValue)").tag(waveType)
+        
+            VStack(spacing: 0.0) {
+                Toggle(isOn: $isOn) {
+                    Text(isOn ? "on" : "off")
                 }
-            }
-            Group {
-                HStack {
-                    Text(String(format: "%.02f", frequency))
-                    Slider(value: $frequency, in: 1.0...8.0).onChange(of: frequency) { _ in
-                        setWave()
+                Picker(selection: $waveType, label: Text("")) {
+                    ForEach(WaveType.allCases, id: \.rawValue){ waveType in
+                        Text("\(waveType.rawValue)").tag(waveType)
                     }
                 }
-                HStack {
-                    Text(String(format: "%.02f", magnitude))
-                    Slider(value: $magnitude, in: -maxMagnitude...maxMagnitude).onChange(of: magnitude) { _ in
-                        setWave()
+                Group {
+                    HStack {
+                        ForEach(1..<11) { index in
+                            Button("1/\(index)") {
+                                frequency = Double(index)
+                            }
+                        }
                     }
-                }
+                    HStack {
+                        Text(String(format: "%.02f", frequency))
+                            .onLongPressGesture {
+                                frequency = 1
+                            }
+                        Slider(value: $frequency, in: 0.5...12.0).onChange(of: frequency) { _ in
+                            setWave()
+                        }
+                    }
+                    HStack {
+                        Text(String(format: "%.02f", magnitude))
+                        Slider(value: $magnitude, in: -maxMagnitude...maxMagnitude).onChange(of: magnitude) { _ in
+                            setWave()
+                        }
+                    }
+                    
+                    HStack {
+                        Text(String(format: "%.02f", phase))
+                        Slider(value: $phase, in: (Double.pi*(-2))...Double.pi*(2)).onChange(of: phase) { _ in
+                            setWave()
+                        }
+                    }
+                    
+                    HStack {
+                        Text(String(format: "%.02f", lift))
+                        Slider(value: $lift, in: (-1...1)).onChange(of: lift) { _ in
+                            setWave()
+                        }
+                    }
                 
-                HStack {
-                    Text(String(format: "%.02f", phase))
-                    Slider(value: $phase, in: (Double.pi*(-2))...Double.pi*(2)).onChange(of: phase) { _ in
-                        setWave()
-                    }
-                }
-                
-                HStack {
-                    Text(String(format: "%.02f", lift))
-                    Slider(value: $lift, in: (-1...1)).onChange(of: lift) { _ in
-                        setWave()
-                    }
-                }
             }
-                .disabled(!isOn)
+            .disabled(!isOn)
         }.padding()
             .border(Color.white, width: 4)
             .onChange(of: waveType) { _ in
@@ -58,7 +70,7 @@ struct WaveControllerView: View {
     }
     
     func setWave() {
-        wav = isOn ? { waveType.waveForm($0*frequency + phase)*magnitude + lift} : { (_:Double) in 0}
+        wav = isOn ? { waveType.waveForm($0*frequency + phase)*magnitude + lift } : { (_:Double) in 0}
     }
 }
 

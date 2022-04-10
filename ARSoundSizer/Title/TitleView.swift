@@ -7,6 +7,9 @@ struct TitleView: View {
                 NavigationLink("Sound Sizer") {
                     ARSoundSizerView()
                 }
+                NavigationLink("Piano") {
+                    ARPianoView()
+                }
                 NavigationLink("Wave Maker") {
                     WaveMakerContainerView()
                 }

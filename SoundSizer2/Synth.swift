@@ -2,6 +2,7 @@ import AVFoundation
 import Combine
 
 class Synth: ObservableObject {
+    @Published var wavCap = false
     @Published var isPlaying = false
     @Published var wav: (Double) -> Double = sin
     var bag = Set<AnyCancellable>()
@@ -53,9 +54,12 @@ class Synth: ObservableObject {
 
         for frame in 0..<Int(frameCount) {
             let percentComplete = self.time / period
-            let sampleVal = self.signal(localFrequency + localRampValue * percentComplete, self.time)
+            let sampleVal = self.signal(localFrequency, self.time)
             self.time += self.deltaTime
-            self.time = fmod(self.time, period)
+            
+            if self.wavCap {
+                self.time = fmod(self.time, period)
+            }
             
             for buffer in ablPointer {
                 let buf: UnsafeMutableBufferPointer<Float> = UnsafeMutableBufferPointer(buffer)

@@ -11,7 +11,7 @@ struct WaveView: View {
             Text(title)
             HStack(spacing: 0) {
                 ForEach(0..<100){ index in
-                    let wavOutput = (wav(Double(index)/100.0*Double.pi*2*frequency)/magnitude+1)/2
+                    let wavOutput = (wav(Double(index)/100.0*Double.pi*2*frequency)/magnitude)/2
                     let height = wavOutput*30
                     
                     VStack(spacing: 0.0) {

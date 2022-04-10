@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B0120C727F9F8A6005796C5 /* MyShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 0B0120C627F9F8A6005796C5 /* MyShader.metal */; };
 		0B0ECC8627F7991B00BBEA46 /* ARAssets.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 0B0ECC8427F7989B00BBEA46 /* ARAssets.rcproject */; };
+		0B5121E127FD249E00CB6E83 /* ARKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5121E027FD249E00CB6E83 /* ARKeyboardView.swift */; };
 		0B6CD35027023ABF00420171 /* SoundSizer2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD34F27023ABF00420171 /* SoundSizer2App.swift */; };
 		0B6CD35227023ABF00420171 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6CD35127023ABF00420171 /* ContentView.swift */; };
 		0B6CD35427023AC100420171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B6CD35327023AC100420171 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		0B0120C627F9F8A6005796C5 /* MyShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MyShader.metal; sourceTree = "<group>"; };
 		0B0ECC8427F7989B00BBEA46 /* ARAssets.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = ARAssets.rcproject; sourceTree = "<group>"; };
+		0B5121E027FD249E00CB6E83 /* ARKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKeyboardView.swift; sourceTree = "<group>"; };
 		0B6CD34C27023ABF00420171 /* SoundSizer2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundSizer2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B6CD34F27023ABF00420171 /* SoundSizer2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundSizer2App.swift; sourceTree = "<group>"; };
 		0B6CD35127023ABF00420171 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B5121DF27FD206700CB6E83 /* ARKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				0B5121E027FD249E00CB6E83 /* ARKeyboardView.swift */,
+			);
+			path = ARKeyboard;
+			sourceTree = "<group>";
+		};
 		0B6CD34327023ABF00420171 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0BD88B1527C84A81009F514D /* Title */,
+				0B5121DF27FD206700CB6E83 /* ARKeyboard */,
 				0BD88B1927C8727D009F514D /* CubesAndSquares */,
 				0BD88B1827C84AB5009F514D /* ChemicalWave */,
 				0BD88B1727C84AA6009F514D /* WaveMaker */,
@@ -422,6 +433,7 @@
 				0B9B1E3F27C6A2BB0021179D /* Synth.swift in Sources */,
 				0B89D49F27CF23DD006FEB36 /* Firefly.swift in Sources */,
 				0B9B1E4327C6E90D0021179D /* TitleView.swift in Sources */,
+				0B5121E127FD249E00CB6E83 /* ARKeyboardView.swift in Sources */,
 				0B9B1E5127C6F8F30021179D /* WaveView.swift in Sources */,
 				0B9B1E3C27C6A2B20021179D /* KeyboardView.swift in Sources */,
 				0B9B1E2F27C697040021179D /* AppDelegate.swift in Sources */,
